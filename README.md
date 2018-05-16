@@ -1,2 +1,7 @@
 # cmpe220_SSO
-Implementation of SSO as part of CMPE 220 - Systems Software - project
+
+Currently, in any organization, there are many applications such as git, Jenkins, opengrok, ServiceNow, Bugzilla, wiki, cashbook and many other applications which serves various purposes. In order to leverage the use of these applications, members of the organization have to create an account which includes creating their own unique username and password for each of the application. Thus, if the member has to use multiple applications, he/she ends up creating multiple username and passwords which is time consuming task and overhead for the user if he/she has to remember all the username and password used for the applications.  
+
+However, this can be avoided by creating a centralized directory which has all of the user's account credentials. Instead of authenticating the user for each and every application, a user can be authenticated only once at the centralized AD (Active Directory). NIS (Network Information Services) allows a central server to manage password authentication, host, services, etc. NIS Client systems look to the NIS server to provide this data and authenticate the applications securely. Another alternative for NIS is LDAP. 
+
+Every time when the user access any of the application, the application checks the AD through NIS/LDAP for user's authenticity. If the user is valid and authenticated, then he/she is allowed to access the application. If application does not find user' credential in the AD, the application will prompt the user to enter username and password once and then updates the NIS server securely to avoid future authentication check. 
